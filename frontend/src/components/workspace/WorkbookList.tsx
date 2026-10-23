@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+
 import { useQuery } from "@tanstack/react-query";
 import { listWorkbooks } from "../../api/workbooks";
 import { WorkbookRow } from "./WorkbookRow";
@@ -78,16 +79,28 @@ export function WorkbookList({
   if (error) return <p role="alert" className="workspace-status">{t.failedToLoadWorkbooks}</p>;
 
   if (!workbooks || workbooks.length === 0) {
-    return (
-      <div className="workspace-empty">
-        <p>{t.noWorkbooksYet}</p>
+  return (
+    <div className="workspace-empty">
+      <div className="workspace-empty-icon">
+      <img
+        src="empty-folder.png"
+        alt="Spreadsheet illustration"
+        className="workspace-empty-image"
+      />
       </div>
-    );
-  }
-
+      <h2>{t.noWorkbooksYet}</h2>
+      
+    </div>
+  );
+}
   if (filtered.length === 0) {
     return (
       <div className="workspace-empty">
+        {/* <img
+        src="empty-folder.png"
+        alt="Spreadsheet illustration"
+        className="workspace-empty-image"
+      /> */}
         <p>{t.noWorkbooksMatch(searchQuery)}</p>
       </div>
     );

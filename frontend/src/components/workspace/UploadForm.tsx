@@ -63,7 +63,12 @@ export function UploadForm() {
         onDrop={handleDrop}
         disabled={mutation.isPending}
       >
-        {mutation.isPending ? <SpinnerIcon className="btn-spinner" /> : <UploadCloudIcon />}
+        {/* {mutation.isPending ? (
+          <SpinnerIcon className="btn-spinner" />
+        ) : (
+          <UploadCloudIcon />
+        )} */}
+        <img src="/up-loading.png" alt="" className="upload-card-image" />
         <span className="upload-card-label">
           {mutation.isPending ? t.uploading : t.uploadWorkbookLabel}
         </span>

@@ -27,7 +27,7 @@ export function AppShell() {
   // ("hangs vertically" — reported after testing on a real mobile browser). Desktop is
   // completely unaffected: this state only has a visual effect once the mobile media query in
   // AppShell.css is active.
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
   const location = useLocation();
 
   // AppShell only ever renders under ProtectedRoute/AdminRoute, both of which already wait for
@@ -39,27 +39,24 @@ export function AppShell() {
   const isWorkspace = location.pathname === "/workspace" || location.pathname === "/workspace/all";
 
   return (
+  <>
+    <Header
+      user={user}
+      searchQuery={isWorkspace ? searchQuery : undefined}
+      onSearchChange={isWorkspace ? setSearchQuery : undefined}
+    />
+
     <div className="shell">
-      <Sidebar
-        user={user}
-        onLogout={logout}
-        isMobileOpen={isMobileNavOpen}
-        onMobileClose={() => setIsMobileNavOpen(false)}
-      />
-      {isMobileNavOpen && (
-        <div className="shell-backdrop" onClick={() => setIsMobileNavOpen(false)} />
-      )}
+      <Sidebar user={user} onLogout={logout} />
+
       <div className="shell-main">
-        <Header
-          user={user}
-          searchQuery={isWorkspace ? searchQuery : undefined}
-          onSearchChange={isWorkspace ? setSearchQuery : undefined}
-          onMenuClick={() => setIsMobileNavOpen(true)}
-        />
         <div className="shell-content">
-          <Outlet context={{ searchQuery, setSearchQuery } satisfies WorkspaceSearchContext} />
+          <Outlet
+            context={{ searchQuery, setSearchQuery } satisfies WorkspaceSearchContext}
+          />
         </div>
       </div>
     </div>
-  );
+  </>
+);
 }

@@ -74,7 +74,10 @@ export function RegisterPage() {
       <div className="auth-decor auth-decor-tl" />
       <div className="auth-decor auth-decor-br" />
 
-      <div className="auth-lang-toggle">
+      
+
+      <div className="auth-card">
+        <div className="auth-lang-toggle">
         <button type="button" className={lang === "fr" ? "active" : ""} onClick={() => setLang("fr")}>
           FR
         </button>
@@ -82,8 +85,6 @@ export function RegisterPage() {
           EN
         </button>
       </div>
-
-      <div className="auth-card">
         <div className="auth-logo">
           <img src="/antic_logo.png" alt="ANTIC" />
         </div>

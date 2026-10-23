@@ -1,0 +1,77 @@
+{
+  "title": "Choose the Workspace's new visual world — safer register",
+  "question": "You steered toward the familiar end. These are the three most conventional grounded directions still on the table, plus the category standard for comparison. Lock one, or steer again.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Le Relevé du Trésor Public",
+      "kicker": "SAFER REGISTER",
+      "lineage": "Treasury bank-statement ledger (relevé de compte)",
+      "thesis": "Every workbook is a line in the agency's own treasury statement — débit/crédit-style columns make status and ownership read like a financial record, not a file list.",
+      "palette": ["#f0ead9", "#1c1a16", "#1e3a5f", "#a3282c"],
+      "materials": ["ruled statement paper", "ink stamp"],
+      "viewport": "A ruled statement header (agency letterhead band), then rows: reference no., libellé (programme name), a débit/crédit-style sync indicator, date, agent responsible.",
+      "risk": "Familiar almost to the point of being invisible — the safest, least distinctive reading of 'government finance register.'",
+      "wireframe": {
+        "cols": 12, "rows": 10,
+        "regions": [
+          { "label": "letterhead statement header", "x": 0, "y": 0, "w": 12, "h": 1, "accent": true },
+          { "label": "ruled rows: ref | libellé | débit/crédit sync | date | agent", "x": 0, "y": 1, "w": 12, "h": 9 }
+        ]
+      }
+    },
+    {
+      "id": "safer-bordereau",
+      "label": "Le Bordereau de Transmission",
+      "lineage": "interdepartmental routing / transmittal slip",
+      "thesis": "Each workbook carries its own transmittal slip — a strip of checkboxes showing which stage (edited, synced, reported) it has passed through.",
+      "palette": ["#e7cdb0", "#4a3a63", "#26221d"],
+      "materials": ["carbon-copy paper", "rubber stamp"],
+      "viewport": "A slim header, then rows of transmittal slips: reference no., programme title, a row of stage checkboxes initialed when passed, date, destinataire.",
+      "risk": "Reads over-bureaucratic if every row shows the full multi-stage checklist even for a workbook with nothing pending.",
+      "wireframe": {
+        "cols": 12, "rows": 10,
+        "regions": [
+          { "label": "header", "x": 0, "y": 0, "w": 12, "h": 1, "accent": true },
+          { "label": "slip rows: ref | programme | stage checkboxes | date | destinataire", "x": 0, "y": 1, "w": 12, "h": 9 }
+        ]
+      }
+    },
+    {
+      "id": "safer-repertoire",
+      "label": "Le Répertoire du Hall",
+      "lineage": "ministry-building lobby directory plaque",
+      "thesis": "The workspace is the building's own lobby directory — services and their current workbook listed by engraved plate, updated by sliding in a fresh nameplate.",
+      "palette": ["#8a6a3a", "#232320", "#eee6d3"],
+      "materials": ["engraved metal plate", "sliding nameplate channel"],
+      "viewport": "A single engraved directory panel: rows of channel-mounted nameplates, one per workbook, sliding in updated titles and programme codes.",
+      "risk": "The most static-feeling of the three — a physical directory board doesn't obviously suggest live, frequently-edited data unless the update motion is deliberate.",
+      "wireframe": {
+        "cols": 12, "rows": 10,
+        "regions": [
+          { "label": "engraved panel header", "x": 0, "y": 0, "w": 12, "h": 1, "accent": true },
+          { "label": "channel-mounted nameplate rows, one per workbook", "x": 0, "y": 1, "w": 12, "h": 9 }
+        ]
+      }
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code", "toggle": false },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "What Google Drive, SharePoint document libraries, and Airtable's grid view all ship for a file list — executed at their own craft level, no irony.",
+    "palette": ["#ffffff", "#111827", "#2563eb"],
+    "materials": ["clean grid", "card shadows"],
+    "viewport": "Greeting hero, upload dropzone, sparse card grid of files below.",
+    "risk": "Indistinguishable from any other SaaS console — exactly what this redesign is meant to move away from.",
+    "wireframe": {
+      "cols": 12, "rows": 10,
+      "regions": [
+        { "label": "greeting hero + upload dropzone", "x": 0, "y": 0, "w": 12, "h": 3, "accent": true },
+        { "label": "sparse card grid of files", "x": 0, "y": 3, "w": 12, "h": 7 }
+      ]
+    }
+  },
+  "steer": true
+}

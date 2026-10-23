@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Bell, FileText, FolderOpen, ListTree, LogOut, ShieldCheck, X } from "lucide-react";
+import { Bell, FileText, FolderOpen, ListTree, LogOut, ShieldCheck } from "lucide-react";
 import type { UserRead } from "../../types/auth";
 import { copy } from "../../i18n/copy";
 import { useLang } from "../../i18n/useLang";
@@ -10,11 +10,11 @@ interface SidebarProps {
   // Off-canvas drawer state, owned by AppShell (not this component) since the header's
   // hamburger button — a sibling, not a descendant — also needs to open it. The drawer is the
   // only way this sidebar is ever shown, at any screen width; see AppShell.css.
-  isMobileOpen: boolean;
-  onMobileClose: () => void;
+  // isMobileOpen: boolean;
+  // onMobileClose: () => void;
 }
 
-export function Sidebar({ user, onLogout, isMobileOpen, onMobileClose }: SidebarProps) {
+export function Sidebar({ user, onLogout }: SidebarProps) {
   const { lang } = useLang();
   const t = copy[lang];
   const location = useLocation();
@@ -28,31 +28,16 @@ export function Sidebar({ user, onLogout, isMobileOpen, onMobileClose }: Sidebar
   const isNotifications = location.pathname === "/notifications";
 
   return (
-    <aside className={`shell-sidebar ${isMobileOpen ? "mobile-open" : ""}`}>
+    <aside className={`shell-sidebar`}>
       <div>
-        <div className="shell-sidebar-brand">
-          <div className="shell-sidebar-logo">
-            <img src="/antic_logo.png" alt="ANTIC" />
-          </div>
-          <span className="shell-sidebar-name">ANTIC</span>
-          {/* The backdrop and tapping a nav link both close the drawer too — this is just the
-              explicit affordance. */}
-          <button
-            type="button"
-            className="shell-sidebar-close"
-            onClick={onMobileClose}
-            aria-label="Close menu"
-          >
-            <X size={16} />
-          </button>
-        </div>
+        
 
         <nav className="shell-nav">
           <Link
             to="/workspace"
             className={`shell-nav-item ${isWorkspaceHome ? "active" : ""}`}
             title={t.navWorkbooks}
-            onClick={onMobileClose}
+           
           >
             <FolderOpen size={16} />
             <span>{t.navWorkbooks}</span>
@@ -62,7 +47,7 @@ export function Sidebar({ user, onLogout, isMobileOpen, onMobileClose }: Sidebar
             to="/workspace/all"
             className={`shell-nav-item ${isAllWorkbooks ? "active" : ""}`}
             title={t.allWorkbooksTitle}
-            onClick={onMobileClose}
+            
           >
             <ListTree size={16} />
             <span>{t.allWorkbooksTitle}</span>
@@ -72,7 +57,7 @@ export function Sidebar({ user, onLogout, isMobileOpen, onMobileClose }: Sidebar
             to="/word-files"
             className={`shell-nav-item ${isWordFiles ? "active" : ""}`}
             title={t.navWordFiles}
-            onClick={onMobileClose}
+           
           >
             <FileText size={16} />
             <span>{t.navWordFiles}</span>
@@ -82,7 +67,7 @@ export function Sidebar({ user, onLogout, isMobileOpen, onMobileClose }: Sidebar
             to="/notifications"
             className={`shell-nav-item ${isNotifications ? "active" : ""}`}
             title={t.navNotifications}
-            onClick={onMobileClose}
+           
           >
             <Bell size={16} />
             <span>{t.navNotifications}</span>
@@ -93,7 +78,7 @@ export function Sidebar({ user, onLogout, isMobileOpen, onMobileClose }: Sidebar
               to="/admin"
               className={`shell-nav-item ${location.pathname === "/admin" ? "active" : ""}`}
               title={t.navAdmin}
-              onClick={onMobileClose}
+              
             >
               <ShieldCheck size={16} />
               <span>{t.navAdmin}</span>

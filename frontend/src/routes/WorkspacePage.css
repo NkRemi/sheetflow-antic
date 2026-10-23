@@ -38,15 +38,16 @@
    background spans the section's full width, edge to edge. */
 
 .workspace-header-section {
-  padding: 32px 0 28px;
+  padding: 36px 0 30px;
+  background: var(--canvas);
 }
 
 .workspace-greeting-line {
-  font-size: 25px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 650;
   color: var(--text-h);
   margin: 0 0 8px;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.6px;
 }
 
 /* The one-line explanation of what this platform actually does — a first-time visitor landing
@@ -56,22 +57,25 @@
    the real width limit; an extra, tighter cap on top of that just wrapped this one sentence
    awkwardly onto two lines with visible empty space still to its right. */
 .workspace-subtitle {
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--text);
-  margin: 0 0 20px;
+  margin: 0 0 26px;
+  line-height: 1.6;
 }
 
 .workspace-upload-row {
   display: flex;
+  justify-content: baseline;
+  flex-direction:row;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 10px;
+  /* flex-wrap: wrap; */
 }
 
 .workspace-upload-title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--text-h);
   margin: 0;
 }
 
@@ -109,64 +113,53 @@
 .upload-card {
   position: relative;
   flex-shrink: 0;
+ 
 }
 
 .upload-card-preview {
-  height: 36px;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-pill);
-  background: var(--surface);
-  color: var(--text-h);
+  border-radius: 10px;
   display: flex;
+  /* flex-direction: column; */
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  padding: 5px;
+  border: 1px dashed var(--border);
+  
+  background: var(--surface);
   cursor: pointer;
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
-  padding: 0 14px;
-  box-sizing: border-box;
-  white-space: nowrap;
-}
-
-.upload-card-preview svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-  color: var(--accent);
+  font-family: inherit;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .upload-card-preview:hover,
 .upload-card-preview.dragging {
   border-color: var(--accent);
   background: var(--accent-bg);
-  color: var(--accent);
 }
 
 .upload-card-preview:disabled {
   opacity: 0.6;
-  cursor: not-allowed;
+  cursor: wait;
+}
+
+.upload-card-image {
+  /* display: block; */
+  /* width: 100%; */
+  max-width: 70px;
+  height: 30px;
+  /* border-radius: 10px; */
+  object-fit: contain;
 }
 
 .upload-card-label {
   font-size: 13.5px;
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--text-h);
 }
 
 .upload-card input[type="file"] {
   display: none;
-}
-
-/* Positioned so a failed upload doesn't shove the list-header row's title/button apart —
-   right-aligned under the button it belongs to instead. */
-.upload-card-error {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin: 6px 0 0;
-  width: max-content;
-  max-width: 260px;
-  font-size: 12.5px;
-  color: var(--danger);
-  text-align: right;
 }
 
 .workspace-see-more {
@@ -208,10 +201,35 @@
 }
 
 .workspace-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 48px 20px;
+  padding: 64px 20px;
   color: var(--text);
+}
+
+.workspace-empty h2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-h);
+  margin: 0 0 8px;
+}
+
+.workspace-empty p {
   font-size: 14px;
+  margin: 0;
+  max-width: 100px;
+}
+
+.workspace-empty-image {
+  display: block;
+  width: 80px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 12px;
 }
 
 .workbook-columns,

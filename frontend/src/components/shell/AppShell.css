@@ -8,9 +8,7 @@
    up, which is what made dark-mode text unreadable against a background stuck in light mode. */
 .shell {
   display: flex;
-  min-height: 100svh;
-  /* Canvas, not flat white — see WorkspacePage.css's .workspace-list-card for the white surface
-     this is meant to set off. */
+  min-height: calc(100vh - 56px);
   background: var(--canvas);
   font-family: var(--sans);
 }
@@ -29,34 +27,25 @@
    dimmed backdrop, with visible margin all around it, rather than a plain rectangle glued to the
    viewport edge. */
 .shell-sidebar {
-  width: 264px;
-  min-width: 264px;
-  max-width: 82vw;
-  height: calc(100svh - 20px);
-  height: 100svh;
-  position: fixed;
-  top: 14px;
-  left: 14px;
-  top: 0;
-  left: 0;
+  padding-top: 10px;
+  width: 220px;
+  /* min-width: 264px; */
+  height: calc(100vh - 66px);
+  position: sticky;
+  top: 56px;
   z-index: 40;
-  border-radius: 10px;
-  background:  rgba(2, 0, 108);
- 
-  color: #fff;
+  background: #f4f5f7b9;
+  color: #000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); */
+  border-right: 1px solid rgb(212, 212, 212);
   overflow-x: hidden;
   overflow-y: auto;
   flex-shrink: 0;
-  /* Moves by more than its own width plus the left offset, so the closed state is still fully
-     off-screen despite no longer sitting flush at left:0. */
-  transform: translateX(-120%);
-  transform: translateX(-100%);
-  transition: transform 0.2s ease;
+  transform: none;
+  transition: none;
 }
 
 .shell-sidebar.mobile-open {
@@ -116,7 +105,7 @@
   border-radius: 14px;
   border: none;
   background: transparent;
-  color: #e0e7ff;
+  color: #000;
   font-family: inherit;
   font-weight: 600;
   font-size: 0.8rem;
@@ -137,14 +126,14 @@
      instead of a deliberate hover state. Excludes .active: without :not(.active) here, this
      rule's higher specificity (:hover adds a pseudo-class) wins over .active's plain background,
      so hovering the already-selected white item incorrectly overrode it with this dark fill. */
-  background: var(--sidebar-hover, #1e1b8f);
+  background: var(--sidebar-hover, #ffffff14);
 }
 
 .shell-nav-item.active {
-  background: #fff;
-  color: #02006c;
-  font-weight: 800;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: #173f7a;
+  color: #fff;
+  font-weight: 600;
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
 }
 
 .shell-nav-item.disabled {
@@ -170,7 +159,7 @@
   border-radius: 14px;
   border: none;
   background: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  color: #000;
   font-family: inherit;
   font-size: 0.75rem;
   font-weight: 700;
@@ -197,7 +186,8 @@
   /* Extra breathing room below the header, on top of whatever top padding the page itself
      already has (WorkspacePage/AdminPage both use 32px) — applied here once, universally,
      rather than in each page, so it stays consistent for any future page under the shell. */
-  padding-top: 14px;
+  min-width: 0;
+  padding-top: 0;
 }
 
 /* ---- Header ---- */
@@ -457,7 +447,7 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(2, 0, 108, 0.15);
+  /* box-shadow: 0 10px 30px rgba(2, 0, 108, 0.15); */
   padding: 6px;
   z-index: 30;
 }

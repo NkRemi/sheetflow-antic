@@ -27,7 +27,7 @@
 
 .auth-decor {
   position: absolute;
-  border-radius: 50%;
+  border-radius: 30%;
   background: rgba(2, 0, 108, 0.035);
   pointer-events: none;
 }
@@ -48,44 +48,45 @@
 
 .auth-lang-toggle {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: .5rem;
+  right: .5rem;
   display: flex;
+  /* flex-direction: column; */
   align-items: center;
   background: #fff;
-  border-radius: 20px;
-  padding: 3px;
+  border-radius: 5px;
+  padding: 1px;
   border: 1px solid #e2e5f0;
   box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
   z-index: 2;
 }
 
 .auth-lang-toggle button {
-  padding: 0.3rem 0.8rem;
-  border-radius: 16px;
+  padding: 0.3rem 0.3rem;
+  border-radius: 4px;
   border: none;
   background: transparent;
   color: #6b7280;
   font-weight: 800;
-  font-size: 0.68rem;
+  font-size: 0.58rem;
   cursor: pointer;
   font-family: inherit;
 }
 
 .auth-lang-toggle button.active {
-  background: #02006c;
+  background: #0016DF;
   color: #fff;
 }
 
 .auth-card {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 390px;
+  width: 90%;
+  max-width: 380px;
   max-height: 100%;
   overflow-y: auto;
   background: #fff;
-  border-radius: 24px;
+  border-radius: 10px;
   border: 1px solid #e7e9f2;
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.09);
   padding: clamp(1rem, 3svh, 2.5rem);
@@ -118,16 +119,16 @@
 
 .auth-card h1 {
   font-size: 1.2rem;
-  font-weight: 800;
+  font-weight: 600;
   text-align: center;
   letter-spacing: -0.01em;
   margin: 0;
-  color: #02006c;
+  color: #000000d6;
 }
 
 .auth-subtitle {
-  font-size: 0.72rem;
-  color: #6b7280;
+  font-size: 0.62rem;
+  color: #000000;
   text-align: center;
   margin: 4px 0 clamp(0.5rem, 2svh, 1.5rem);
 }
@@ -156,7 +157,7 @@
 .auth-input-wrap svg {
   position: absolute;
   left: 14px;
-  color: #02006c;
+  color: #080808;
   opacity: 0.85;
   pointer-events: none;
   width: 18px;
@@ -166,11 +167,11 @@
 .auth-input-wrap input {
   width: 100%;
   padding: 0.75rem 1rem 0.75rem 2.6rem;
-  border-radius: 14px;
+  border-radius: 8px;
   border: 1px solid #dde1ec;
   background: #fff;
-  color: #0f172a;
-  font-size: 0.78rem;
+  color: #000000;
+  font-size: 0.68rem;
   font-weight: 600;
   font-family: inherit;
   outline: none;
@@ -179,7 +180,7 @@
 }
 
 .auth-input-wrap input:focus {
-  border-color: #02006c;
+  border-color: #070707;
   box-shadow: 0 0 0 3px rgba(2, 0, 108, 0.12);
 }
 
@@ -200,7 +201,7 @@
   right: 12px;
   background: none;
   border: none;
-  color: #02006c;
+  color: #080808;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -238,13 +239,13 @@
 }
 
 .auth-checkbox input {
-  accent-color: #02006c;
+  accent-color: #0016dfe3;
   width: 15px;
   height: 15px;
 }
 
 .auth-link {
-  color: #02006c;
+  color: #0016dfe3;
   font-weight: 800;
   text-decoration: underline;
   background: none;
@@ -280,9 +281,9 @@
   margin-top: 0.25rem;
   width: 100%;
   padding: 0.85rem;
-  border-radius: 16px;
+  border-radius: 8px;
   border: none;
-  background: #02006c;
+  background: #0016dfe3;
   color: #fff;
   font-weight: 800;
   font-size: 0.8rem;

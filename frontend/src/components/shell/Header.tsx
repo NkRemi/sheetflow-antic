@@ -31,10 +31,9 @@ interface HeaderProps {
   onSearchChange?: (value: string) => void;
   // Opens the sidebar drawer (see AppShell.tsx/css) — the sidebar is never permanently visible
   // at any width, so this is the only way to reach Word Files/Admin nav.
-  onMenuClick: () => void;
 }
 
-export function Header({ user, searchQuery, onSearchChange, onMenuClick }: HeaderProps) {
+export function Header({ user, searchQuery, onSearchChange }: HeaderProps) {
   const { lang, setLang } = useLang();
   const t = copy[lang];
   const { notifications, unreadCount, markAllRead } = useNotifications();
@@ -67,14 +66,14 @@ export function Header({ user, searchQuery, onSearchChange, onMenuClick }: Heade
   return (
     <header className="shell-header">
       <div className="shell-header-start">
-        <button
+        {/* <button
           type="button"
           className="shell-hamburger"
           onClick={onMenuClick}
           aria-label="Open menu"
         >
           <Menu size={20} />
-        </button>
+        </button> */}
 
         <div className="shell-header-brand">
           <img src="/antic_logo.png" alt="ANTIC" />
